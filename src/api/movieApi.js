@@ -15,6 +15,11 @@ export const getUpcomingMovie = async page => {
   return response.data;
 };
 
+export const getTopRatedMovie = async page => {
+  const response = await instance.get('movie/top_rated', { params: { page } });
+  return response.data;
+};
+
 export const getMovieDetail = async id => {
   const response = await instance.get(`movie/${id}`);
   return response.data;

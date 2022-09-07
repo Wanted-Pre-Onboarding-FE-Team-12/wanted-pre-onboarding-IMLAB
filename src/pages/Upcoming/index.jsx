@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
 import Layout from 'layout';
-import ScrollUpButton from 'react-scroll-up-button';
 
 import useReadInfinityUpcoming from '@pages/Upcoming/hooks/useReadInfinityUpcoming';
 import PageItem from '@pages/Upcoming/components/PageItem';
@@ -42,7 +41,6 @@ const Upcoming = () => {
           })}
         </CardList>
       )}
-      <ScrollUpButton />
     </Layout>
   );
 };

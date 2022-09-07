@@ -6,9 +6,9 @@ export const Movie = ({ movie }) => {
   const prefix = 'https://image.tmdb.org/t/p/w500';
 
   return (
-    <MovieWrapper id="movie" key={id}>
-      <MoviePoster src={`${prefix}${poster_path}`}></MoviePoster>
-      <MovieDescription>{title}</MovieDescription>
+    <MovieWrapper id={id} key={id}>
+      <MoviePoster id={id} src={`${prefix}${poster_path}`}></MoviePoster>
+      <MovieDescription id={id}>{title}</MovieDescription>
     </MovieWrapper>
   );
 };

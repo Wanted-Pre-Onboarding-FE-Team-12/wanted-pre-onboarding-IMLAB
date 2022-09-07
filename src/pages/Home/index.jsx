@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Layout from 'layout';
-import { getPopularMovie } from './popularApi';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import styled from 'styled-components';
+import { getPopularMovie } from '@api/movieApi.js'
 import Movie from './Components/Movie';
 import MainThumbnail from './Components/MainThumbnail';
 
 const Home = () => {
+  const navigate = useNavigate();
   const [popularMovies, setPopularMovies] = useState([]);
 
   async function setMoviesList() {
-    const popularMovies = await getPopularMovie();
-    setPopularMovies(popularMovies);
+    const popularRaw = await getPopularMovie(1);
+    setPopularMovies(popularRaw.results);
   }
 
   useEffect(() => {
@@ -27,10 +27,13 @@ const Home = () => {
       return prefix + popularMovies[0].backdrop_path;
     }
   }
+  const goToDetail = id => {
+    navigate(`/${id}`);
+  };
 
   function handlePopularMovieListClick(event) {
-    if (event.target.parentNode.id === 'movie') {
-      // 클릭 이벤트: 상세 페이지 이동 or 상세 정보 보이기
+    if (event.target.id !== '' && event.target.id === event.target.parentNode.id ) {
+      goToDetail(event.target.id)
     }
   }
   return (

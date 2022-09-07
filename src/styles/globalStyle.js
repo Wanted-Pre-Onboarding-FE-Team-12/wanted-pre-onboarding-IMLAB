@@ -19,7 +19,6 @@ body {
   font-family: "Noto Sans KR";
   color: hsl(0, 0%, 100%);
   margin: 0;
-  transition: all 0.2s ease-in;
 }
   
   article,

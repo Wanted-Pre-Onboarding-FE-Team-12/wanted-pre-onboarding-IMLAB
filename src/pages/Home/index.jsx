@@ -38,14 +38,6 @@ const Home = () => {
     );
   }
 
-  function getMainMovie() {
-    if (!popularMovies.results.length) {
-      return '';
-    } else {
-      const prefix = 'https://image.tmdb.org/t/p/w500';
-      return prefix + popularMovies.results[THUMBNAIL_NUM].backdrop_path;
-    }
-  }
 
   const goToDetail = id => {
     navigate(`movie/:${id}`, { state: id });
@@ -60,7 +52,7 @@ const Home = () => {
     <Layout>
       <HomeWrapper>
         <MainThumbnail
-          src={getMainMovie()}
+          handleClick={handlePopularMovieListClick}
           movie={popularMovies.results[THUMBNAIL_NUM] ? popularMovies.results[THUMBNAIL_NUM] : ''}
         />
         <h1>Popular Movies</h1>

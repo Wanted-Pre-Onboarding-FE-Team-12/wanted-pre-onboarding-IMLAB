@@ -9,6 +9,7 @@ import MainThumbnail from './Components/MainThumbnail';
 const Home = () => {
   const navigate = useNavigate();
   const [popularMovies, setPopularMovies] = useState([]);
+  const THUMBNAIL_NUM = 3
 
   async function setMoviesList() {
     const popularRaw = await getPopularMovie(1);
@@ -24,7 +25,7 @@ const Home = () => {
       return '';
     } else {
       const prefix = 'https://image.tmdb.org/t/p/w500';
-      return prefix + popularMovies[0].backdrop_path;
+      return prefix + popularMovies[THUMBNAIL_NUM].backdrop_path;
     }
   }
   const goToDetail = id => {
@@ -39,7 +40,7 @@ const Home = () => {
   return (
     <Layout>
       <HomeWrapper>
-        <MainThumbnail src={getMainMovie()} />
+        <MainThumbnail src={getMainMovie()} movie={popularMovies[THUMBNAIL_NUM]?popularMovies[THUMBNAIL_NUM]:''}/>
         <h1>Popular Movies</h1>
         <PopularMovies onClick={handlePopularMovieListClick}>
           {popularMovies?.map(movie => (
@@ -60,9 +61,13 @@ const HomeWrapper = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+  h1{
+    margin-top: 3rem;
+  }
 `;
 const PopularMovies = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 2rem 0;
 `;

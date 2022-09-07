@@ -4,7 +4,6 @@ import styled from 'styled-components';
 export const Movie = ({ movie }) => {
   const { id, poster_path, title } = movie;
   const prefix = 'https://image.tmdb.org/t/p/w500';
-
   return (
     <MovieWrapper id={id} key={id}>
       <MoviePoster id={id} src={`${prefix}${poster_path}`}></MoviePoster>

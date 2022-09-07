@@ -7,7 +7,11 @@ function MovieCards({ movieImage, movieId, movieName, movieRelease }) {
   return (
     <Card>
       <Link to={`/movie${movieId}`}>
-        {movieImage ? <img src={movieImage} alt={movieName} /> : <NoImage>no Image</NoImage>}
+        {movieImage ? (
+          <img style={{ width: '100%' }} src={movieImage} alt={movieName} />
+        ) : (
+          <NoImage>no Image</NoImage>
+        )}
 
         <MovieInfo>{movieName}</MovieInfo>
         <MovieInfo>{movieRelease}</MovieInfo>

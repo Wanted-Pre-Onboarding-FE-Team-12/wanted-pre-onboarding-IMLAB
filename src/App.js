@@ -1,7 +1,7 @@
 import loadable from '@loadable/component';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-const Home = loadable(() => import('@pages/Home'));
+const Home = loadable(() => import('@pages/Home/Home'));
 const NowPlaying = loadable(() => import('@pages/NowPlaying'));
 const Search = loadable(() => import('@pages/Search'));
 const TopRated = loadable(() => import('@pages/TopRated'));

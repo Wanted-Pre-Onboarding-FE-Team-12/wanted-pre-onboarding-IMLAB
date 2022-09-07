@@ -1,11 +1,7 @@
 import { instance } from './index';
 
 export const getPopularMovie = async page => {
-<<<<<<< HEAD
-  const response = await instance.get('popular', { params: { page } });
-=======
   const response = await instance.get('movie/popular', { params: { page } });
->>>>>>> main
   return response.data;
 };
 

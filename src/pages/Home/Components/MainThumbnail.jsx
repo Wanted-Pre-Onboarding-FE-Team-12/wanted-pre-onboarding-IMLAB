@@ -1,20 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IMAGE_BASE_URL } from '@utils/links';
 
-export const MainThumbnail = ({ movie, goToDetail }) => {
+export const MainThumbnail = ({ movie, goToDetail, chartNum }) => {
   if (movie === '') {
     return;
   }
   const { id, backdrop_path, title, overview, vote_average, vote_count } = movie;
-  const prefix = 'https://image.tmdb.org/t/p/w500';
-  const handleClick = (event) => {
-    goToDetail(id)
-  }
+  const handleClick = event => {
+    goToDetail(id);
+  };
   return (
     <Thumbnail>
-      <ThumbnailImage src={`${prefix}${backdrop_path}`}></ThumbnailImage>
+      <ThumbnailImage src={`${IMAGE_BASE_URL}${backdrop_path}`}></ThumbnailImage>
       <ThumbnailDescription>
         <div className="col-top">
+          <h2>현재 top {chartNum+1} 영화</h2>
           <h1>{title}</h1>
           <p>{overview}</p>
           <p>{`⭐${vote_average}  🤩${vote_count}`}</p>
@@ -30,7 +31,7 @@ export default MainThumbnail;
 const Thumbnail = styled.div`
   width: 90%;
   display: flex;
-  margin: 3rem 0;
+  margin: 3rem 0 6rem 0;
 `;
 const ThumbnailImage = styled.img`
   width: 50%;

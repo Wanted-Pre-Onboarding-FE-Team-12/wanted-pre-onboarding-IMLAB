@@ -9,7 +9,7 @@ import { useQuery } from '@tanstack/react-query';
 import Loading from '@components/Loading2';
 
 const Home = () => {
-  const THUMBNAIL_NUM = Math.floor(Math.random() * 20);
+  let randomNum = Math.floor(Math.random() * 20);
   const navigate = useNavigate();
 
   let page = 1;
@@ -52,7 +52,8 @@ const Home = () => {
       <HomeWrapper>
         <MainThumbnail
           goToDetail={goToDetail}
-          movie={popularMovies.results[THUMBNAIL_NUM] ? popularMovies.results[THUMBNAIL_NUM] : ''}
+          movie={popularMovies.results[randomNum] ? popularMovies.results[randomNum] : ''}
+          chartNum = {randomNum}
         />
         <h1>Popular Movies</h1>
         <PopularMovies onClick={handlePopularMovieListClick}>

@@ -29,3 +29,14 @@ export const searchMovie = async (query, page) => {
   const response = await instance.get(`search/movie`, { params: { query, page } });
   return response.data;
 };
+
+export const getTopRated = async ({ pageParam = 1 }) => {
+  const { data } = await instance.get(`movie/top_rated?page=${pageParam}`);
+  const isLast = data.page === data.total_pages;
+
+  return {
+    result: data,
+    nextPage: pageParam + 1,
+    isLast,
+  };
+};

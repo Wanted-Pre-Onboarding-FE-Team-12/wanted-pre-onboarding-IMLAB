@@ -7,7 +7,9 @@ export const Movie = ({ movie }) => {
   return (
     <MovieWrapper id={id} key={id}>
       <MoviePoster id={id} src={`${prefix}${poster_path}`}></MoviePoster>
-      <h2 id={id} className={title}>{title}</h2>
+      <h2 id={id} className={title}>
+        {title}
+      </h2>
       <h5 className={original_title}>{original_title}</h5>
       <h5 className={vote_average}>{`⭐${vote_average}`}</h5>
     </MovieWrapper>

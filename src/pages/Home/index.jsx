@@ -1,33 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React  from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from 'layout';
 import styled from 'styled-components';
 import { getPopularMovie } from '@api/movieApi.js';
 import Movie from './Components/Movie';
 import MainThumbnail from './Components/MainThumbnail';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '@components/Loading2';
 
 const Home = () => {
-  const navigate = useNavigate();
-  const [popularMovies, setPopularMovies] = useState([]);
   const THUMBNAIL_NUM = 3;
+  const navigate = useNavigate();
 
-  async function setMoviesList() {
-    const popularRaw = await getPopularMovie(1);
-    setPopularMovies(popularRaw.results);
+  let page = 1;
+  const {data:popularMovies, error, isError, isLoading} = useQuery(['popularMovies.results',page], async () => {
+    const results = await getPopularMovie(page)
+    return results
+  })
+  
+  if (isLoading){
+    return <Layout>
+      <Loading />
+    </Layout>
+  }
+  if (isError){
+    return <Layout>
+      <h1>에러가 발생했습니다. {error}</h1>
+    </Layout>
   }
 
-  useEffect(() => {
-    setMoviesList();
-  }, []);
-
   function getMainMovie() {
-    if (!popularMovies.length) {
+    if (!popularMovies.results.length) {
       return '';
     } else {
       const prefix = 'https://image.tmdb.org/t/p/w500';
-      return prefix + popularMovies[THUMBNAIL_NUM].backdrop_path;
+      return prefix + popularMovies.results[THUMBNAIL_NUM].backdrop_path;
     }
   }
+
   const goToDetail = id => {
     navigate(`movie/:${id}`, { state: id });
   };
@@ -42,11 +52,11 @@ const Home = () => {
       <HomeWrapper>
         <MainThumbnail
           src={getMainMovie()}
-          movie={popularMovies[THUMBNAIL_NUM] ? popularMovies[THUMBNAIL_NUM] : ''}
+          movie={popularMovies.results[THUMBNAIL_NUM] ? popularMovies.results[THUMBNAIL_NUM] : ''}
         />
         <h1>Popular Movies</h1>
         <PopularMovies onClick={handlePopularMovieListClick}>
-          {popularMovies?.map(movie => (
+          {popularMovies.results?.map(movie => (
             <Movie movie={movie} key={movie.id} />
           ))}
         </PopularMovies>

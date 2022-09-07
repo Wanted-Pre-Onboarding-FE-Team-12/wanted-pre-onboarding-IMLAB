@@ -9,7 +9,7 @@ import MainThumbnail from './Components/MainThumbnail';
 const Home = () => {
   const navigate = useNavigate();
   const [popularMovies, setPopularMovies] = useState([]);
-  const THUMBNAIL_NUM = 3
+  const THUMBNAIL_NUM = 3;
 
   async function setMoviesList() {
     const popularRaw = await getPopularMovie(1);
@@ -40,7 +40,10 @@ const Home = () => {
   return (
     <Layout>
       <HomeWrapper>
-        <MainThumbnail src={getMainMovie()} movie={popularMovies[THUMBNAIL_NUM]?popularMovies[THUMBNAIL_NUM]:''}/>
+        <MainThumbnail
+          src={getMainMovie()}
+          movie={popularMovies[THUMBNAIL_NUM] ? popularMovies[THUMBNAIL_NUM] : ''}
+        />
         <h1>Popular Movies</h1>
         <PopularMovies onClick={handlePopularMovieListClick}>
           {popularMovies?.map(movie => (
@@ -61,7 +64,7 @@ const HomeWrapper = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  h1{
+  h1 {
     margin-top: 3rem;
   }
 `;

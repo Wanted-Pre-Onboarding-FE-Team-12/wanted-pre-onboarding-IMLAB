@@ -17,6 +17,7 @@ const variables = {
     neonBlue: '#2196f3',
     boxShadow: '0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3',
     smallBoxShadow: '0 0 3px #2196f3, 0 0 7px #2196f3',
+    white: '#fff',
   },
   sideSpace: {
     large: '4rem',

@@ -14,7 +14,7 @@ export const NavLinksWrapper = styled.div`
     .page-link {
       padding: 1rem 2rem;
       margin-right: 1rem;
-      font-size: 2.4rem;
+      font-size: 2.1rem;
       font-weight: 300;
       &:hover {
         transform: translateY(-5px);

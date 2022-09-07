@@ -3,5 +3,5 @@ export const navLinks = [
   { title: 'Now Playing', path: '/nowplaying' },
   { title: 'Top Rated', path: '/toprated' },
   { title: 'Upcoming', path: '/upcoming' },
-  { title: 'Search', path: '/search' },
+  // { title: 'Search', path: '/search' },
 ];

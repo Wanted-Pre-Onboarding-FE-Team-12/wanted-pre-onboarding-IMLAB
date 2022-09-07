@@ -9,7 +9,7 @@ import { useQuery } from '@tanstack/react-query';
 import Loading from '@components/Loading2';
 
 const Home = () => {
-  const THUMBNAIL_NUM = 3;
+  const THUMBNAIL_NUM = Math.floor(Math.random() * 20);
   const navigate = useNavigate();
 
   let page = 1;

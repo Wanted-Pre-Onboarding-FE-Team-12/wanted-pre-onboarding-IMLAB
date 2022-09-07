@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from 'layout';
 import styled from 'styled-components';
-import { getPopularMovie } from '@api/movieApi.js'
+import { getPopularMovie } from '@api/movieApi.js';
 import Movie from './Components/Movie';
 import MainThumbnail from './Components/MainThumbnail';
 
@@ -28,12 +28,12 @@ const Home = () => {
     }
   }
   const goToDetail = id => {
-    navigate(`/${id}`);
+    navigate(`movie/${id}`, { state:id });
   };
 
   function handlePopularMovieListClick(event) {
-    if (event.target.id !== '' && event.target.id === event.target.parentNode.id ) {
-      goToDetail(event.target.id)
+    if (event.target.id !== '' && event.target.id === event.target.parentNode.id) {
+      goToDetail(event.target.id);
     }
   }
   return (

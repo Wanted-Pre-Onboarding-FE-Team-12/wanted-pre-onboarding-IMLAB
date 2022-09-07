@@ -5,3 +5,5 @@ export const navLinks = [
   { title: 'Upcoming', path: '/upcoming' },
   // { title: 'Search', path: '/search' },
 ];
+
+export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original';

@@ -1,12 +1,22 @@
+import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
+import Skeleton from './Skeleton';
 
 const Cell = props => {
   const { imgSrc, name, rate } = props;
+  const { ref, inView } = useInView();
+
   return (
-    <Wrapper>
-      {imgSrc ? <img src={imgSrc} alt={name} /> : <GrayBackGroundDiv></GrayBackGroundDiv>}
-      <div>{name}</div>
-      <div>{rate}</div>
+    <Wrapper ref={ref}>
+      {inView ? (
+        <>
+          {imgSrc ? <img src={imgSrc} alt={name} /> : <GrayBackGroundDiv></GrayBackGroundDiv>}
+          <div>{name}</div>
+          <div>{rate}</div>
+        </>
+      ) : (
+        <Skeleton />
+      )}
     </Wrapper>
   );
 };
@@ -23,8 +33,8 @@ const Wrapper = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
+  align-items: center;
   img {
-    /* min-height: 60rem; */
     width: 100%;
   }
   div {

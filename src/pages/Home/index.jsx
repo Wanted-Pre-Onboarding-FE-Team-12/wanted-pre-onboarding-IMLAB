@@ -38,7 +38,6 @@ const Home = () => {
     );
   }
 
-
   const goToDetail = id => {
     navigate(`movie/:${id}`, { state: id });
   };
@@ -52,7 +51,7 @@ const Home = () => {
     <Layout>
       <HomeWrapper>
         <MainThumbnail
-          handleClick={handlePopularMovieListClick}
+          goToDetail={goToDetail}
           movie={popularMovies.results[THUMBNAIL_NUM] ? popularMovies.results[THUMBNAIL_NUM] : ''}
         />
         <h1>Popular Movies</h1>

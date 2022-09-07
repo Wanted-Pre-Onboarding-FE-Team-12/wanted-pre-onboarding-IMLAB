@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const MainThumbnail = ({ movie, handleClick }) => {
+export const MainThumbnail = ({ movie, goToDetail }) => {
   if (movie === '') {
     return;
   }
-  const { backdrop_path, title, overview, vote_average, vote_count } = movie;
+  const { id, backdrop_path, title, overview, vote_average, vote_count } = movie;
   const prefix = 'https://image.tmdb.org/t/p/w500';
+  const handleClick = (event) => {
+    goToDetail(id)
+  }
   return (
     <Thumbnail>
       <ThumbnailImage src={`${prefix}${backdrop_path}`}></ThumbnailImage>

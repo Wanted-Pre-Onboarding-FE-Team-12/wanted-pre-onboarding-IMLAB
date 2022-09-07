@@ -18,44 +18,44 @@ const Home = () => {
     setMoviesList();
   }, []);
 
-  function getMainMovie(){
-    if (!popularMovies.length){
-      return ''
+  function getMainMovie() {
+    if (!popularMovies.length) {
+      return '';
     } else {
-      const prefix = "https://image.tmdb.org/t/p/w500"
-      return prefix+popularMovies[0].backdrop_path
+      const prefix = 'https://image.tmdb.org/t/p/w500';
+      return prefix + popularMovies[0].backdrop_path;
     }
   }
-  return <Layout>
-    <HomeWrapper>
-      <MainMovieThumbNail src={getMainMovie()}>
-      </MainMovieThumbNail>
-      <h1>Popular Movies</h1>
-      <PopularMovies>
-        {popularMovies?.map(movie=>(
-          <Movie movie={movie} key={movie.id}/>
-        ))}
-      </PopularMovies>
-    </HomeWrapper>
-  </Layout>;
+  return (
+    <Layout>
+      <HomeWrapper>
+        <MainMovieThumbNail src={getMainMovie()}></MainMovieThumbNail>
+        <h1>Popular Movies</h1>
+        <PopularMovies>
+          {popularMovies?.map(movie => (
+            <Movie movie={movie} key={movie.id} />
+          ))}
+        </PopularMovies>
+      </HomeWrapper>
+    </Layout>
+  );
 };
 
 export default Home;
 
 const HomeWrapper = styled.div`
   color: white;
-  display:flex;
-  flex-direction:column;
-  width:100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 `;
 const MainMovieThumbNail = styled.img`
   margin: 3rem 0;
 `;
 const PopularMovies = styled.div`
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 `;

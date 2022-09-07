@@ -20,7 +20,7 @@
 | [노기훈](https://github.com/ch4md0m)   |                                                      |
 | [유지예](https://github.com/jiye-7)    |                                                      |
 | [이우윤](https://github.com/EEOOOO)    |                                                      |
-| [백광현](https://github.com/ghbaekdev) |                                                      |
+| [백광현](https://github.com/ghbaekdev) | now playing 홈페이지 구현, 로딩컴포넌트 제작         |
 | [정진우](https://github.com/jinux127)  | 공통 컴포넌트 제작 (로딩, 스크롤업), 순위페이지 구현 |
 | [정현준](https://github.com/wjd2676)   |                                                      |
 
@@ -137,6 +137,12 @@ npm run start
 
 1. home page
 2. now playing page
+
+- 한번에 데이터 최대 20개 조회
+  - 제목, 포스터, 별점 표시
+  - 포스터 없는 경우, 대체 이미지 적용
+  - infinitescroll 구현
+
 3. upcoming page
 4. top-rated page
    ![image](/public/images/trpage.gif)

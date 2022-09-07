@@ -21,6 +21,12 @@ const MovieWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     margin: 1rem;
+    cursor: pointer;
+    transition: transform ease 0.3s;
+    &:hover{
+        transform: scale(1.08);
+    }
+
 `;
 const MoviePoster = styled.img`
     width: 150px;

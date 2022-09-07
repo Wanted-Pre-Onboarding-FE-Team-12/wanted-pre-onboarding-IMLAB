@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import Movie from './Components/Movie';
+import MainThumbnail from './Components/MainThumbnail';
 
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -26,12 +27,18 @@ const Home = () => {
       return prefix + popularMovies[0].backdrop_path;
     }
   }
+
+  function handlePopularMovieListClick(event) {
+    if (event.target.parentNode.id === 'movie') {
+      // 클릭 이벤트: 상세 페이지 이동 or 상세 정보 보이기
+    }
+  }
   return (
     <Layout>
       <HomeWrapper>
-        <MainMovieThumbNail src={getMainMovie()}></MainMovieThumbNail>
+        <MainThumbnail src={getMainMovie()} />
         <h1>Popular Movies</h1>
-        <PopularMovies>
+        <PopularMovies onClick={handlePopularMovieListClick}>
           {popularMovies?.map(movie => (
             <Movie movie={movie} key={movie.id} />
           ))}
@@ -50,9 +57,6 @@ const HomeWrapper = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-`;
-const MainMovieThumbNail = styled.img`
-  margin: 3rem 0;
 `;
 const PopularMovies = styled.div`
   display: flex;

@@ -12,6 +12,7 @@ const TopRated = props => {
       {movie.map(movieInfo => {
         return (
           <Cell
+            id={movieInfo.id}
             key={movieInfo.id}
             imgSrc={`${IMAGE_BASE_URL}${movieInfo.poster_path}`}
             name={movieInfo.title}

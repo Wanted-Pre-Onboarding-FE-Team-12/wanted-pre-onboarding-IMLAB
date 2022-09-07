@@ -3,6 +3,7 @@ import TopRated from './components/TopRated';
 import Loading from '@components/Loading2';
 
 import * as movieApi from '@api/movieApi';
+
 import useInfiniteQueryWithObservation from '@hooks/useInfiniteQueryWithObservation';
 
 const TopRatedPage = () => {

@@ -18,9 +18,7 @@ const useInfiniteQueryWithObservation = ({ api, queryString }) => {
     if (inView) fetchNextPage();
   }, [inView]);
 
-  const LoadingOrObservation = () => {
-    return isFetchingNextPage ? <Loading /> : <div ref={ref}></div>;
-  };
+  const LoadingOrObservation = () => (isFetchingNextPage ? <Loading /> : <div ref={ref}></div>);
 
   return {
     data: data?.pages,

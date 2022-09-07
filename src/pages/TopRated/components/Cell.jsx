@@ -1,13 +1,20 @@
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
+
 import styled from 'styled-components';
 import Skeleton from './Skeleton';
 
 const Cell = props => {
-  const { imgSrc, name, rate } = props;
+  const { imgSrc, name, rate, id } = props;
   const { ref, inView } = useInView();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/movie/${id}`);
+  };
 
   return (
-    <Wrapper ref={ref}>
+    <Wrapper ref={ref} onClick={handleClick}>
       {inView ? (
         <>
           {imgSrc ? <img src={imgSrc} alt={name} /> : <GrayBackGroundDiv></GrayBackGroundDiv>}
@@ -20,6 +27,7 @@ const Cell = props => {
     </Wrapper>
   );
 };
+
 const GrayBackGroundDiv = styled.div`
   width: 100%;
   background-color: gray;
@@ -34,6 +42,7 @@ const Wrapper = styled.div`
   width: 100%;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
   img {
     width: 100%;
   }

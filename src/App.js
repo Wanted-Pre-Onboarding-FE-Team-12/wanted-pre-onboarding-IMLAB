@@ -15,12 +15,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/nowplaying" element={<NowPlaying />} />
-          <Route path="/toprated" element={<TopRated />} />
-          <Route path="/upcoming" element={<Upcoming />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/movie" element={<Home />} />
+          <Route path="/movie/nowplaying" element={<NowPlaying />} />
+          <Route path="/movie/toprated" element={<TopRated />} />
+          <Route path="/movie/upcoming" element={<Upcoming />} />
+          <Route path="/movie/search" element={<Search />} />
+          <Route path="/movie/:id" element={<Home />} />
+          <Route path="*" element={<Navigate to="/movie" replace />} />
         </Routes>
       </div>
     </QueryClientProvider>

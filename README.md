@@ -139,9 +139,9 @@ npm run start
 2. now playing page
 
 - 한번에 데이터 최대 20개 조회
-  - 제목, 포스터, 별점 표시
-  - 포스터 없는 경우, 대체 이미지 적용
-  - infinitescroll 구현
+- 제목, 포스터, 별점 표시
+- 포스터 없는 경우, 대체 이미지 적용
+- infinitescroll 구현
 
 3. upcoming page
 4. top-rated page

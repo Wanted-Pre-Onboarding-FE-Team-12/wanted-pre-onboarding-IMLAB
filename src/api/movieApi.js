@@ -1,6 +1,6 @@
 import { instance } from './index';
 
-export const getPopularMovie = async page => {  
+export const getPopularMovie = async page => {
   const response = await instance.get('movie/popular', { params: { page } });
   return response.data;
 };

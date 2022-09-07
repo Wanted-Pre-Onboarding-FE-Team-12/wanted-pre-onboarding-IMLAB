@@ -16,7 +16,7 @@ const useInfiniteQueryWithObservation = ({ api, queryString }) => {
 
   useEffect(() => {
     if (inView) fetchNextPage();
-  }, [inView]);
+  }, [inView, fetchNextPage]);
 
   const LoadingOrObservation = () => (isFetchingNextPage ? <Loading /> : <div ref={ref}></div>);
 

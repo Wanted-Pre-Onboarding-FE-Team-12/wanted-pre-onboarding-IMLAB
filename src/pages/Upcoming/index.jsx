@@ -6,6 +6,8 @@ import useReadInfinityUpcoming from '@pages/Upcoming/hooks/useReadInfinityUpcomi
 import PageItem from '@pages/Upcoming/components/PageItem';
 import Loading from '@components/Loading/index';
 
+import styled from 'styled-components';
+
 const Upcoming = () => {
   const { isFecthing, isSuccess, data, hasNextPage, fetchNextPage } = useReadInfinityUpcoming();
 
@@ -31,20 +33,30 @@ const Upcoming = () => {
 
   return (
     <Layout>
+      <Heading>Upcoming movies</Heading>
       {isFecthing && <Loading />}
       {isSuccess && (
-        <>
-          <h1>Upcoming movies</h1>
-          <div>
-            {data?.pages?.map((page, pageIndex) => {
-              return <PageItem key={pageIndex} page={page} pageIndex={pageIndex} />;
-            })}
-          </div>
-        </>
+        <CardList>
+          {data?.pages?.map((page, pageIndex) => {
+            return <PageItem key={pageIndex} page={page} pageIndex={pageIndex} />;
+          })}
+        </CardList>
       )}
       <ScrollUpButton />
     </Layout>
   );
 };
+
+const Heading = styled.h1`
+  text-align: center;
+`;
+
+const CardList = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px;
+`;
 
 export default Upcoming;

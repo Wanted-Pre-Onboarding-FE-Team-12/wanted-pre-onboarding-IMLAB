@@ -2,6 +2,7 @@ import React from 'react';
 
 import Links from '@components/Links';
 import { navLinks } from '@utils/links';
+import SearchBox from '@components/Search';
 
 // CSS
 import * as S from './style';
@@ -14,6 +15,7 @@ const Header = () => {
         <Link to="/">Logo</Link>
       </S.NavLogo>
       <Links styleClass="nav-links" linkData={navLinks} />
+      <SearchBox />
     </S.NavigationWrapper>
   );
 };

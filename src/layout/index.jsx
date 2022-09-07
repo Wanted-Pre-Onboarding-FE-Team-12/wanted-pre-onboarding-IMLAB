@@ -8,14 +8,14 @@ import Footer from '@components/Footer';
 import * as S from './style';
 import GlobalStyle from '@styles/globalStyle';
 import theme from '@styles/theme';
+import ScrollUpButton from '@components/ScrollUp';
 
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-
       <S.LayoutWrapper>{children}</S.LayoutWrapper>
-
+      <ScrollUpButton />
       <Footer />
       <GlobalStyle />
     </ThemeProvider>

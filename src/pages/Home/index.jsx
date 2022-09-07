@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from 'layout';
 import styled from 'styled-components';
@@ -13,20 +13,29 @@ const Home = () => {
   const navigate = useNavigate();
 
   let page = 1;
-  const {data:popularMovies, error, isError, isLoading} = useQuery(['popularMovies.results',page], async () => {
-    const results = await getPopularMovie(page)
-    return results
-  })
-  
-  if (isLoading){
-    return <Layout>
-      <Loading />
-    </Layout>
+  const {
+    data: popularMovies,
+    error,
+    isError,
+    isLoading,
+  } = useQuery(['popularMovies.results', page], async () => {
+    const results = await getPopularMovie(page);
+    return results;
+  });
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <Loading />
+      </Layout>
+    );
   }
-  if (isError){
-    return <Layout>
-      <h1>에러가 발생했습니다. {error}</h1>
-    </Layout>
+  if (isError) {
+    return (
+      <Layout>
+        <h1>에러가 발생했습니다. {error}</h1>
+      </Layout>
+    );
   }
 
   function getMainMovie() {

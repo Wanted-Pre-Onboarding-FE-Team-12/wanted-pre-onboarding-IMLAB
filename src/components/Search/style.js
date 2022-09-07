@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const SearchBoxContainer = styled.div`
+export const SearchBoxContainer = styled.form`
   position: absolute;
-  top: 13%;
+  top: 12%;
   right: 3%;
   display: flex;
   justify-content: center;
@@ -34,6 +34,9 @@ export const SearchBoxContainer = styled.div`
   }
 
   .search-btn {
+    border: none;
+    background: none;
+    outline: none;
     color: ${props => props.theme.colors.lightRed};
     float: right;
     width: 40x;

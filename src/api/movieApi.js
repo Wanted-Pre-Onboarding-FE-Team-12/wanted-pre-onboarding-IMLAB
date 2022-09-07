@@ -28,7 +28,7 @@ export const searchMovie = async (query, page) => {
 export const getTopRated = async ({ pageParam = 1 }) => {
   const { data } = await instance.get(`movie/top_rated?page=${pageParam}`);
   const isLast = data.page === data.total_pages;
-  console.log(pageParam);
+
   return {
     result: data,
     nextPage: pageParam + 1,

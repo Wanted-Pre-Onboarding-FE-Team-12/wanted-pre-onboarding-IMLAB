@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const SearchBoxContainer = styled.form`
-  position: absolute;
-  top: 12%;
+  position: fixed;
+  top: 60px;
   right: 3%;
   display: flex;
   justify-content: center;

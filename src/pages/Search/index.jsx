@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getSearchKeyword } from './api/searchapi';
+import { searchMovie } from '@api/movieApi';
 import MovieCard from './components/MovieCard';
 import Layout from 'layout';
 import * as S from './style';
@@ -11,18 +11,24 @@ const Search = () => {
   } = useLocation();
   const [word, setWord] = useState('');
   const [searchMovies, setSearchMovies] = useState([]);
+  const [currentPage, setPage] = useState(1);
 
   useEffect(() => {
     if (searchWord) {
       setWord(searchWord);
     }
-    (async () => {
+  }, [searchWord]);
+
+  useEffect(() => {
+    const getSearchMovie = async () => {
       if (word !== '') {
-        const { results } = await getSearchKeyword(word);
+        let { page, results } = await searchMovie(word, currentPage);
         setSearchMovies(results);
+        setPage(++page);
       }
-    })();
-  }, [searchWord, word]);
+    };
+    getSearchMovie();
+  }, [word]);
 
   return (
     <Layout>

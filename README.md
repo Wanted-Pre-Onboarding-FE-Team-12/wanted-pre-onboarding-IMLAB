@@ -16,7 +16,7 @@
 
 | 이름                                   | 역할                                                 |
 | -------------------------------------- | ---------------------------------------------------- |
-| [김재훈](https://github.com/rmawogns)  |                                                      |
+| [김재훈](https://github.com/rmawogns)  | Upcoming 페이지 구현                                 |
 | [노기훈](https://github.com/ch4md0m)   |                                                      |
 | [유지예](https://github.com/jiye-7)    |                                                      |
 | [이우윤](https://github.com/EEOOOO)    |                                                      |
@@ -144,6 +144,12 @@ npm run start
 - infinitescroll 구현
 
 3. upcoming page
+
+- 한번에 데이터 최대 20개 조회
+- 제목, 개봉 예정일 표시
+- infinitescroll 구현
+- 포스터 없는 경우, 대체 이미지(no Image) 적용
+
 4. top-rated page
    ![image](/public/images/trpage.gif)
    - 한번에 데이터 최대 20개 조회

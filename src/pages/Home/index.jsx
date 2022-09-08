@@ -1,33 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Layout from 'layout';
 import { getPopularMovie } from '@api/movieApi.js';
-import Movie from './components/Movie';
-import MainThumbnail from './components/MainThumbnail';
+import Movie from './Components/Movie';
+import MainThumbnail from './Components/MainThumbnail';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '@components/Loading2';
 
 const Home = () => {
+  let randomNum = Math.floor(Math.random() * 20);
   const navigate = useNavigate();
-  const [popularMovies, setPopularMovies] = useState([]);
 
-  async function setMoviesList() {
-    const popularRaw = await getPopularMovie(1);
-    setPopularMovies(popularRaw.results);
+  let page = 1;
+  const {
+    data: popularMovies,
+    error,
+    isError,
+    isLoading,
+  } = useQuery(['popularMovies.results', page], async () => {
+    const results = await getPopularMovie(page);
+    return results;
+  });
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <Loading />
+      </Layout>
+    );
+  }
+  if (isError) {
+    return (
+      <Layout>
+        <h1>에러가 발생했습니다. {error}</h1>
+      </Layout>
+    );
   }
 
-  useEffect(() => {
-    setMoviesList();
-  }, []);
-
-  function getMainMovie() {
-    if (!popularMovies.length) {
-      return '';
-    } else {
-      const prefix = 'https://image.tmdb.org/t/p/w500';
-      return prefix + popularMovies[0].backdrop_path;
-    }
-  }
   const goToDetail = id => {
     navigate(`movie/:${id}`, { state: id });
   };
@@ -40,10 +51,14 @@ const Home = () => {
   return (
     <Layout>
       <HomeWrapper>
-        <MainThumbnail src={getMainMovie()} />
+        <MainThumbnail
+          goToDetail={goToDetail}
+          movie={popularMovies.results[randomNum] ? popularMovies.results[randomNum] : ''}
+          chartNum = {randomNum}
+        />
         <h1>Popular Movies</h1>
         <PopularMovies onClick={handlePopularMovieListClick}>
-          {popularMovies?.map(movie => (
+          {popularMovies.results?.map(movie => (
             <Movie movie={movie} key={movie.id} />
           ))}
         </PopularMovies>
@@ -61,9 +76,13 @@ const HomeWrapper = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+  h1 {
+    margin-top: 3rem;
+  }
 `;
 const PopularMovies = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 2rem 0;
 `;

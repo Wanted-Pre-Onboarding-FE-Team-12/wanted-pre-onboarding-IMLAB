@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SearchBoxContainer = styled.form`
   position: fixed;
+  z-index: 999;
   top: 60px;
   right: 3%;
   display: flex;

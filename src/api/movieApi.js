@@ -27,11 +27,6 @@ export const getTopRatedMovie = async page => {
   return response.data;
 };
 
-export const getMovieDetail = async id => {
-  const response = await instance.get(`movie/${id}`);
-  return response.data;
-};
-
 export const searchMovie = async (query, page) => {
   const response = await instance.get(`search/movie`, { params: { query, page } });
   return response.data;

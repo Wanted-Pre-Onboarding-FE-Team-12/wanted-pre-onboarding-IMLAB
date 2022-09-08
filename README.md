@@ -19,7 +19,7 @@
 | [김재훈](https://github.com/rmawogns)  |                                                      |
 | [노기훈](https://github.com/ch4md0m)   |                                                      |
 | [유지예](https://github.com/jiye-7)    |                                                      |
-| [이우윤](https://github.com/EEOOOO)    |                                                      |
+| [이우윤](https://github.com/EEOOOO)    | 메인 페이지                                          |
 | [백광현](https://github.com/ghbaekdev) | now playing 홈페이지 구현, 로딩컴포넌트 제작         |
 | [정진우](https://github.com/jinux127)  | 공통 컴포넌트 제작 (로딩, 스크롤업), 순위페이지 구현 |
 | [정현준](https://github.com/wjd2676)   |                                                      |
@@ -136,6 +136,11 @@ npm run start
 ### 3.2. 페이지
 
 1. home page
+
+- 순위에 따라 인기 영화들을 카드 형태로 나열
+- 포스터, 제목, 평점 표시
+- 상위 20개 중 랜덤으로 영화 상단에 썸네일로 표시
+
 2. now playing page
 
 - 한번에 데이터 최대 20개 조회

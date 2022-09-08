@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 
@@ -5,19 +6,35 @@ import styled from 'styled-components';
 import Skeleton from './Skeleton';
 
 const Cell = props => {
+  const [isLoad, setIsLoad] = useState(false);
+  const [img, setImg] = useState('');
   const { imgSrc, name, rate, id } = props;
   const { ref, inView } = useInView();
   const navigate = useNavigate();
+  const imgRef = useRef(null);
 
   const handleClick = () => {
     navigate(`/movie/${id}`);
   };
 
+  useEffect(() => {
+    const img = new Image();
+    img.src = imgSrc;
+    img.onload = () => {
+      setIsLoad(true);
+      setImg(imgSrc);
+    };
+  }, [imgSrc]);
+
   return (
     <Wrapper ref={ref} onClick={handleClick}>
-      {inView ? (
+      {inView && isLoad ? (
         <>
-          {imgSrc ? <img src={imgSrc} alt={name} /> : <GrayBackGroundDiv></GrayBackGroundDiv>}
+          {imgSrc ? (
+            <img src={img} alt={name} />
+          ) : (
+            <GrayBackGroundDiv ref={imgRef}></GrayBackGroundDiv>
+          )}
           <div>{name}</div>
           <div>{rate}</div>
         </>
@@ -31,7 +48,7 @@ const Cell = props => {
 const GrayBackGroundDiv = styled.div`
   width: 100%;
   background-color: gray;
-  height: 60rem;
+  min-height: 60rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +61,8 @@ const Wrapper = styled.div`
   align-items: center;
   cursor: pointer;
   img {
-    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
   div {
     margin: 5px;

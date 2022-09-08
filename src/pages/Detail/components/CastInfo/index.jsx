@@ -3,7 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 
 import * as movieDetailApi from '@api/movieDetailApi';
-import imgConfig from '@utils/imgConfig';
+
+import { W500_IMAGE_URL } from '@utils/links';
 
 // CSS
 import * as S from './style';
@@ -24,7 +25,7 @@ const CastInfo = () => {
     <S.CastWrapper>
       {filteredData?.map(cast => (
         <S.profileCard key={cast.id}>
-          <img className="actorImg" src={imgConfig.w500Image(cast.profile_path)} alt="actor" />
+          <img className="actorImg" src={`${W500_IMAGE_URL}${cast.profile_path}`} alt="actor" />
           <span className="actorName">{cast.name}</span>
         </S.profileCard>
       ))}

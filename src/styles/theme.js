@@ -15,8 +15,6 @@ const variables = {
     lightRed: 'hsl(360, 71%, 66%)',
     lightOrange: 'hsl(29, 74%, 92%)',
     neonBlue: '#2196f3',
-    boxShadow: '0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3',
-    smallBoxShadow: '0 0 3px #2196f3, 0 0 7px #2196f3',
     white: '#fff',
   },
   sideSpace: {
@@ -26,7 +24,7 @@ const variables = {
   responsive: {
     small: '500px',
     medium: '768px',
-    large: '950px',
+    large: '1000px',
   },
   text: {
     spacing: '0.2rem',

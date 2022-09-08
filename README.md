@@ -60,6 +60,8 @@ npm run start
 ├── package-lock.json
 ├── package.json
 ├── public
+│   ├── images
+│   │   └── trpage.gif
 │   └── index.html
 └── src
     ├── App.js
@@ -67,6 +69,7 @@ npm run start
     │   ├── index.js
     │   └── movieApi.js
     ├── assets
+    │   ├── alternativeimage.jpeg
     │   ├── loading.gif
     │   └── loadingdark.gif
     ├── components
@@ -100,11 +103,22 @@ npm run start
     │   ├── Detail
     │   │   └── index.jsx
     │   ├── Home
+    │   │   ├── Components
+    │   │   │   ├── MainThumbnail.jsx
+    │   │   │   └── Movie.jsx
     │   │   └── index.jsx
     │   ├── NowPlaying
-    │   │   └── index.jsx
+    │   │   ├── componenets
+    │   │   │   └── Card
+    │   │   │       └── NowPlayingCard.jsx
+    │   │   ├── index.jsx
+    │   │   └── style.js
     │   ├── Search
-    │   │   └── index.jsx
+    │   │   ├── components
+    │   │   │   ├── MovieCard.jsx
+    │   │   │   └── MovieModal.jsx
+    │   │   ├── index.jsx
+    │   │   └── style.js
     │   ├── TopRated
     │   │   ├── components
     │   │   │   ├── Cell.jsx

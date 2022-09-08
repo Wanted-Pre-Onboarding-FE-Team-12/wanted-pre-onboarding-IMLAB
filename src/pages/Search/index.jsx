@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getSearchKeyword } from './api/searchapi';
+import { useInfiniteQuery } from '@tanstack/react-query';
+import InfiniteScroll from 'react-infinite-scroller';
+import { searchMovie } from '@api/movieApi';
 import MovieCard from './components/MovieCard';
 import Layout from 'layout';
 import * as S from './style';
@@ -9,29 +10,44 @@ const Search = () => {
   const {
     state: { searchWord },
   } = useLocation();
-  const [word, setWord] = useState('');
-  const [searchMovies, setSearchMovies] = useState([]);
 
-  useEffect(() => {
-    if (searchWord) {
-      setWord(searchWord);
-    }
-    (async () => {
-      if (word !== '') {
-        const { results } = await getSearchKeyword(word);
-        setSearchMovies(results);
-      }
-    })();
-  }, [searchWord, word]);
+  const { isLoading, isFetching, isError, error, data, fetchNextPage, hasNextPage } =
+    useInfiniteQuery(
+      ['searchMovies', searchWord],
+      ({ pageParam = 1 }) => {
+        return searchMovie(searchWord, pageParam);
+      },
+      {
+        getNextPageParam: pageInfo => {
+          return pageInfo.page < pageInfo.total_pages ? pageInfo.page + 1 : undefined;
+        },
+        refetchOnMount: true,
+        refetchOnWindowFocus: false,
+      },
+    );
+
+  if (isLoading) {
+    return (
+      <S.Loading className="loading-container">
+        <div></div>
+      </S.Loading>
+    );
+  }
+
+  if (isError) {
+    return <S.Error>Error! {error.toString()}</S.Error>;
+  }
 
   return (
     <Layout>
-      {searchMovies.length === 0 && <h3>Loading... :)</h3>}
-      <S.MovieContainer>
-        {searchMovies?.map(movie => (
-          <MovieCard movie={movie} key={movie.id} />
-        ))}
-      </S.MovieContainer>
+      {isFetching && <S.FetchingLoading className="loading">fetching...</S.FetchingLoading>}
+      <InfiniteScroll loadMore={fetchNextPage} hasMore={hasNextPage}>
+        <S.MovieContainer>
+          {data?.pages?.map(page =>
+            page.results?.map(movie => <MovieCard movie={movie} key={movie.id} />),
+          )}
+        </S.MovieContainer>
+      </InfiniteScroll>
     </Layout>
   );
 };

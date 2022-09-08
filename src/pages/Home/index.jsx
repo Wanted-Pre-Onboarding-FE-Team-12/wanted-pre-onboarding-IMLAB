@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Layout from 'layout';
 import styled from 'styled-components';
+
+import Layout from 'layout';
 import { getPopularMovie } from '@api/movieApi.js';
-import Movie from './Components/Movie';
-import MainThumbnail from './Components/MainThumbnail';
+import Movie from './components/Movie';
+import MainThumbnail from './components/MainThumbnail';
 
 const Home = () => {
   const navigate = useNavigate();

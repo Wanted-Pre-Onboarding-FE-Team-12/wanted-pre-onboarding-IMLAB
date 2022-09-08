@@ -14,15 +14,23 @@
 
 ## 팀원
 
-| 이름                                   | 역할                                                 |
-| -------------------------------------- | ---------------------------------------------------- |
-| [김재훈](https://github.com/rmawogns)  | Upcoming 페이지 구현                                 |
-| [노기훈](https://github.com/ch4md0m)   | 초기 세팅, 상세 페이지 구현, 배포                    |
-| [유지예](https://github.com/jiye-7)    |                                                      |
-| [이우윤](https://github.com/EEOOOO)    | 메인 페이지                                          |
-| [백광현](https://github.com/ghbaekdev) | now playing 홈페이지 구현, 로딩컴포넌트 제작         |
-| [정진우](https://github.com/jinux127)  | 공통 컴포넌트 제작 (로딩, 스크롤업), 순위페이지 구현 |
-| [정현준](https://github.com/wjd2676)   | 개인 사정으로 미참여                                 |
+| 이름 | 역할 |
+| ---- | ---- |
+
+<<<<<<< HEAD
+| [김재훈](https://github.com/rmawogns) | Upcoming 페이지 구현 |
+| [노기훈](https://github.com/ch4md0m) | 초기 세팅, 상세 페이지 구현, 배포 |
+| [유지예](https://github.com/jiye-7) | |
+=======
+| [김재훈](https://github.com/rmawogns) | |
+| [노기훈](https://github.com/ch4md0m) | |
+| [유지예](https://github.com/jiye-7) | 검색 기능, 검색 페이지에서 쓰이는 무한 스크롤, 모달창 구현 |
+
+> > > > > > > fd2fbb91dae71223e59cc5c98e6b2e99687f3b5b
+> > > > > > > | [이우윤](https://github.com/EEOOOO) | 메인 페이지 |
+> > > > > > > | [백광현](https://github.com/ghbaekdev) | now playing 홈페이지 구현, 로딩컴포넌트 제작 |
+> > > > > > > | [정진우](https://github.com/jinux127) | 공통 컴포넌트 제작 (로딩, 스크롤업), 순위페이지 구현 |
+> > > > > > > | [정현준](https://github.com/wjd2676) | |
 
 ## Tech Stack
 
@@ -56,105 +64,83 @@ npm run start
 
 ## 2. 폴더구조
 
-```sh
-src
- ┣ api
- ┃ ┣ index.js
- ┃ ┣ movieApi.js
- ┃ ┗ movieDetailApi.js
- ┣ assets
- ┃ ┣ alternativeimage.jpeg
- ┃ ┣ loading.gif
- ┃ ┣ loadingdark.gif
- ┃ ┗ logo.png
- ┣ components
- ┃ ┣ Footer
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Header
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Links
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Loading
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Loading2
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ ScrollUp
- ┃ ┃ ┗ index.jsx
- ┃ ┗ Search
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┣ hooks
- ┃ ┗ useInfiniteQueryWithObservation.js
- ┣ layout
- ┃ ┣ index.jsx
- ┃ ┗ style.js
- ┣ pages
- ┃ ┣ Detail
- ┃ ┃ ┣ components
- ┃ ┃ ┃ ┣ CastInfo
- ┃ ┃ ┃ ┃ ┣ index.jsx
- ┃ ┃ ┃ ┃ ┗ style.js
- ┃ ┃ ┃ ┣ Description
- ┃ ┃ ┃ ┃ ┣ index.jsx
- ┃ ┃ ┃ ┃ ┗ style.js
- ┃ ┃ ┃ ┣ InfoContainer
- ┃ ┃ ┃ ┃ ┣ index.jsx
- ┃ ┃ ┃ ┃ ┗ style.js
- ┃ ┃ ┃ ┣ Modal
- ┃ ┃ ┃ ┃ ┣ index.jsx
- ┃ ┃ ┃ ┃ ┗ style.js
- ┃ ┃ ┃ ┣ TrailerButton
- ┃ ┃ ┃ ┃ ┣ index.jsx
- ┃ ┃ ┃ ┃ ┗ style.js
- ┃ ┃ ┃ ┗ .DS_Store
- ┃ ┃ ┣ .DS_Store
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Home
- ┃ ┃ ┣ components
- ┃ ┃ ┃ ┣ MainThumbnail.jsx
- ┃ ┃ ┃ ┗ Movie.jsx
- ┃ ┃ ┗ index.jsx
- ┃ ┣ NowPlaying
- ┃ ┃ ┣ componenets
- ┃ ┃ ┃ ┗ Card
- ┃ ┃ ┃ ┃ ┗ NowPlayingCard.jsx
- ┃ ┃ ┣ components
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Search
- ┃ ┃ ┣ components
- ┃ ┃ ┃ ┣ MovieCard.jsx
- ┃ ┃ ┃ ┗ MovieModal.jsx
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ TopRated
- ┃ ┃ ┣ components
- ┃ ┃ ┃ ┣ Cell.jsx
- ┃ ┃ ┃ ┣ Skeleton.jsx
- ┃ ┃ ┃ ┗ TopRated.jsx
- ┃ ┃ ┗ index.jsx
- ┃ ┣ Upcoming
- ┃ ┃ ┣ components
- ┃ ┃ ┗ index.jsx
- ┃ ┗ .DS_Store
- ┣ styles
- ┃ ┣ globalStyle.js
- ┃ ┗ theme.js
- ┣ utils
- ┃ ┗ links.js
- ┣ .DS_Store
- ┣ App.js
- ┗ index.js
 ```
-
-<br/>
-<br/>
+├── package-lock.json
+├── package.json
+├── public
+│   ├── images
+│   │   └── trpage.gif
+│   └── index.html
+└── src
+    ├── App.js
+    ├── api
+    │   ├── index.js
+    │   └── movieApi.js
+    ├── assets
+    │   ├── alternativeimage.jpeg
+    │   ├── loading.gif
+    │   └── loadingdark.gif
+    ├── components
+    │   ├── Footer
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── Header
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── Links
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── Loading
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── Loading2
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── ScrollUp
+    │   │   └── index.jsx
+    │   └── Search
+    │       ├── index.jsx
+    │       └── style.js
+    ├── hooks
+    │   └── useInfiniteQueryWithObservation.js
+    ├── index.js
+    ├── layout
+    │   ├── index.jsx
+    │   └── style.js
+    ├── pages
+    │   ├── Detail
+    │   │   └── index.jsx
+    │   ├── Home
+    │   │   ├── Components
+    │   │   │   ├── MainThumbnail.jsx
+    │   │   │   └── Movie.jsx
+    │   │   └── index.jsx
+    │   ├── NowPlaying
+    │   │   ├── componenets
+    │   │   │   └── Card
+    │   │   │       └── NowPlayingCard.jsx
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── Search
+    │   │   ├── components
+    │   │   │   ├── MovieCard.jsx
+    │   │   │   └── MovieModal.jsx
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── TopRated
+    │   │   ├── components
+    │   │   │   ├── Cell.jsx
+    │   │   │   ├── Skeleton.jsx
+    │   │   │   └── TopRated.jsx
+    │   │   └── index.jsx
+    │   └── Upcoming
+    │       └── index.jsx
+    ├── styles
+    │   ├── globalStyle.js
+    │   └── theme.js
+    └── utils
+        └── links.js
+```
 
 ## 3.과제 달성 사항 및 해결 방법
 
@@ -171,7 +157,7 @@ src
 
 ### 3.2. 페이지
 
-#### 1. home page
+1. home page
 
 - 순위에 따라 인기 영화들을 카드 형태로 나열
 - 포스터, 제목, 평점 표시
@@ -184,6 +170,13 @@ src
 - 포스터 없는 경우, 대체 이미지 적용
 - infinitescroll 구현
 
+3. upcoming page
+
+- 한번에 데이터 최대 20개 조회
+- 제목, 포스터, 개봉 예정일 표시
+- 포스터 없는 경우, 대체(no Image) 적용
+- infinitescroll 구현
+
 4. top-rated page
    ![image](/public/images/trpage.gif)
    - 한번에 데이터 최대 20개 조회
@@ -193,7 +186,7 @@ src
    - 이미지 로딩 시 skeleton 으로 표현
 5. 영화 상세 페이지
 
-#### 3. upcoming page
+6. 검색 페이지
 
 - 한번에 데이터 최대 20개 조회
 - 제목, 개봉 예정일 표시

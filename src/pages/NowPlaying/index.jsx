@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Layout from 'layout';
-import NowPlayingCard from './componenets/Card/NowPlayingCard';
+import NowPlayingCard from './components/Card/NowPlayingCard';
 import * as S from './style';
 import Loading from '@components/Loading2/index';
 import InfiniteScroll from 'react-infinite-scroller';
 import * as MovieAPI from '../../api/movieApi';
-import { useQuery } from '@tanstack/react-query';
 
 const NowPlaying = () => {
   const [nowPlayList, setNowPlayList] = useState();

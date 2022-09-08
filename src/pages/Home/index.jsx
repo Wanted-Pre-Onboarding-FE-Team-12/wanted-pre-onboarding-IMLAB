@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import Layout from 'layout';
 import { getPopularMovie } from '@api/movieApi.js';
-import Movie from './Components/Movie';
-import MainThumbnail from './Components/MainThumbnail';
+import Movie from './components/Movie';
+import MainThumbnail from './components/MainThumbnail';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '@components/Loading2';
 
@@ -40,7 +40,7 @@ const Home = () => {
   }
 
   const goToDetail = id => {
-    navigate(`movie/:${id}`, { state: id });
+    navigate(`movie/${id}`, { state: id });
   };
 
   function handlePopularMovieListClick(event) {

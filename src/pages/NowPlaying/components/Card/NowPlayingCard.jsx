@@ -7,8 +7,7 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import * as S from '../../style';
 import alterImg from '../../../../assets/alternativeimage.jpeg';
-
-const IMAGE_BASE_URL = process.env.REACT_APP_IMAGE_BASE_URL;
+import { IMAGE_BASE_URL } from '@utils/links';
 
 const NowPlayingCard = ({ nowPlay }) => {
   const navigate = useNavigate();

@@ -31,8 +31,6 @@ const NowPlaying = () => {
     setNowPlayList([...result]);
   };
 
-  // const { isLoading } = useQuery(['nowplaying'], () => MovieAPI.getNowPlayingMovie());
-
   return (
     <Layout>
       <S.NowPlayingBox>

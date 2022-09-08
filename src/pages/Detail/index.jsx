@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import Layout from 'layout';
 import * as movieDetailApi from '@api/movieDetailApi';
-import imgConfig from '@utils/imgConfig';
+import { IMAGE_BASE_URL } from '@utils/links';
 import InfoContainer from './components/InfoContainer';
 import Loading from '@components/Loading2';
 
@@ -34,7 +34,7 @@ const Detail = () => {
         {status === 'success' && (
           <>
             <S.BannerWrapper>
-              <S.Banner url={imgConfig.originalImage(backdrop_path || poster_path)} />
+              <S.Banner url={`${IMAGE_BASE_URL}${backdrop_path || poster_path}`} />
             </S.BannerWrapper>
 
             <InfoContainer

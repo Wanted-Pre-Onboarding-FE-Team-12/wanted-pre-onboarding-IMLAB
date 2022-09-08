@@ -17,4 +17,9 @@ export const ButtonWrapper = styled.div`
       background: ${props => props.theme.colors.primary3};
     }
   }
+
+  @media screen and (max-width: ${({ theme }) => theme.responsive.large}) {
+    margin-top: 1rem;
+    width: 100%;
+  }
 `;

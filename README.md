@@ -17,12 +17,12 @@
 | 이름                                   | 역할                                                 |
 | -------------------------------------- | ---------------------------------------------------- |
 | [김재훈](https://github.com/rmawogns)  |                                                      |
-| [노기훈](https://github.com/ch4md0m)   | 초기 세팅, 상세 페이지 구현, 배포                    |
-| [유지예](https://github.com/jiye-7)    |                                                      |
+| [노기훈](https://github.com/ch4md0m)   |                                                      |
+| [유지예](https://github.com/jiye-7)    | 검색 기능, 검색 페이지에서 쓰이는 무한 스크롤, 모달창 구현        |
 | [이우윤](https://github.com/EEOOOO)    | 메인 페이지                                          |
 | [백광현](https://github.com/ghbaekdev) | now playing 홈페이지 구현, 로딩컴포넌트 제작         |
 | [정진우](https://github.com/jinux127)  | 공통 컴포넌트 제작 (로딩, 스크롤업), 순위페이지 구현 |
-| [정현준](https://github.com/wjd2676)   | 개인 사정으로 미참여                                 |
+| [정현준](https://github.com/wjd2676)   |                                                      |
 
 ## Tech Stack
 
@@ -56,105 +56,83 @@ npm run start
 
 ## 2. 폴더구조
 
-```sh
-src
- ┣ api
- ┃ ┣ index.js
- ┃ ┣ movieApi.js
- ┃ ┗ movieDetailApi.js
- ┣ assets
- ┃ ┣ alternativeimage.jpeg
- ┃ ┣ loading.gif
- ┃ ┣ loadingdark.gif
- ┃ ┗ logo.png
- ┣ components
- ┃ ┣ Footer
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Header
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Links
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Loading
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Loading2
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ ScrollUp
- ┃ ┃ ┗ index.jsx
- ┃ ┗ Search
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┣ hooks
- ┃ ┗ useInfiniteQueryWithObservation.js
- ┣ layout
- ┃ ┣ index.jsx
- ┃ ┗ style.js
- ┣ pages
- ┃ ┣ Detail
- ┃ ┃ ┣ components
- ┃ ┃ ┃ ┣ CastInfo
- ┃ ┃ ┃ ┃ ┣ index.jsx
- ┃ ┃ ┃ ┃ ┗ style.js
- ┃ ┃ ┃ ┣ Description
- ┃ ┃ ┃ ┃ ┣ index.jsx
- ┃ ┃ ┃ ┃ ┗ style.js
- ┃ ┃ ┃ ┣ InfoContainer
- ┃ ┃ ┃ ┃ ┣ index.jsx
- ┃ ┃ ┃ ┃ ┗ style.js
- ┃ ┃ ┃ ┣ Modal
- ┃ ┃ ┃ ┃ ┣ index.jsx
- ┃ ┃ ┃ ┃ ┗ style.js
- ┃ ┃ ┃ ┣ TrailerButton
- ┃ ┃ ┃ ┃ ┣ index.jsx
- ┃ ┃ ┃ ┃ ┗ style.js
- ┃ ┃ ┃ ┗ .DS_Store
- ┃ ┃ ┣ .DS_Store
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Home
- ┃ ┃ ┣ components
- ┃ ┃ ┃ ┣ MainThumbnail.jsx
- ┃ ┃ ┃ ┗ Movie.jsx
- ┃ ┃ ┗ index.jsx
- ┃ ┣ NowPlaying
- ┃ ┃ ┣ componenets
- ┃ ┃ ┃ ┗ Card
- ┃ ┃ ┃ ┃ ┗ NowPlayingCard.jsx
- ┃ ┃ ┣ components
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ Search
- ┃ ┃ ┣ components
- ┃ ┃ ┃ ┣ MovieCard.jsx
- ┃ ┃ ┃ ┗ MovieModal.jsx
- ┃ ┃ ┣ index.jsx
- ┃ ┃ ┗ style.js
- ┃ ┣ TopRated
- ┃ ┃ ┣ components
- ┃ ┃ ┃ ┣ Cell.jsx
- ┃ ┃ ┃ ┣ Skeleton.jsx
- ┃ ┃ ┃ ┗ TopRated.jsx
- ┃ ┃ ┗ index.jsx
- ┃ ┣ Upcoming
- ┃ ┃ ┣ components
- ┃ ┃ ┗ index.jsx
- ┃ ┗ .DS_Store
- ┣ styles
- ┃ ┣ globalStyle.js
- ┃ ┗ theme.js
- ┣ utils
- ┃ ┗ links.js
- ┣ .DS_Store
- ┣ App.js
- ┗ index.js
 ```
-
-<br/>
-<br/>
+├── package-lock.json
+├── package.json
+├── public
+│   ├── images
+│   │   └── trpage.gif
+│   └── index.html
+└── src
+    ├── App.js
+    ├── api
+    │   ├── index.js
+    │   └── movieApi.js
+    ├── assets
+    │   ├── alternativeimage.jpeg
+    │   ├── loading.gif
+    │   └── loadingdark.gif
+    ├── components
+    │   ├── Footer
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── Header
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── Links
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── Loading
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── Loading2
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── ScrollUp
+    │   │   └── index.jsx
+    │   └── Search
+    │       ├── index.jsx
+    │       └── style.js
+    ├── hooks
+    │   └── useInfiniteQueryWithObservation.js
+    ├── index.js
+    ├── layout
+    │   ├── index.jsx
+    │   └── style.js
+    ├── pages
+    │   ├── Detail
+    │   │   └── index.jsx
+    │   ├── Home
+    │   │   ├── Components
+    │   │   │   ├── MainThumbnail.jsx
+    │   │   │   └── Movie.jsx
+    │   │   └── index.jsx
+    │   ├── NowPlaying
+    │   │   ├── componenets
+    │   │   │   └── Card
+    │   │   │       └── NowPlayingCard.jsx
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── Search
+    │   │   ├── components
+    │   │   │   ├── MovieCard.jsx
+    │   │   │   └── MovieModal.jsx
+    │   │   ├── index.jsx
+    │   │   └── style.js
+    │   ├── TopRated
+    │   │   ├── components
+    │   │   │   ├── Cell.jsx
+    │   │   │   ├── Skeleton.jsx
+    │   │   │   └── TopRated.jsx
+    │   │   └── index.jsx
+    │   └── Upcoming
+    │       └── index.jsx
+    ├── styles
+    │   ├── globalStyle.js
+    │   └── theme.js
+    └── utils
+        └── links.js
+```
 
 ## 3.과제 달성 사항 및 해결 방법
 
@@ -171,7 +149,7 @@ src
 
 ### 3.2. 페이지
 
-#### 1. home page
+1. home page
 
 - 순위에 따라 인기 영화들을 카드 형태로 나열
 - 포스터, 제목, 평점 표시
@@ -184,31 +162,26 @@ src
 - 포스터 없는 경우, 대체 이미지 적용
 - infinitescroll 구현
 
-<br/>
+3. upcoming page
+4. top-rated page
+   ![image](/public/images/trpage.gif)
+   - 한번에 데이터 최대 20개 조회
+   - 제목, 포스터, 별점 표시
+   - 포스터 없는 경우, 대체 이미지 적용
+   - lazyLoading 구현
+   - 이미지 로딩 시 skeleton 으로 표현
+5. 영화 상세 페이지
 
-#### 3. upcoming page
+6. 검색 페이지
 
-<br/>
-
-#### 4. top-rated page
-
-![image](/public/images/trpage.gif)
-
-- 한번에 데이터 최대 20개 조회
-- 제목, 포스터, 별점 표시
-- 포스터 없는 경우, 대체 이미지 적용
-- lazyLoading 구현
-- 이미지 로딩 시 skeleton 으로 표현
-
-<br/>
-
-#### 5. 영화 상세 페이지
-
-![image](/public/images/detailpage.gif)
-
-- Modal 창으로 트레일러 재생
-- 트레일러가 있을 경우만 트레일러 버튼 노출
-
-<br/>
-
-#### 6. 검색 페이지
+   ![검색기능 구현](https://user-images.githubusercontent.com/62678492/189015291-e5db93c4-4990-4aee-bd47-0d7f4f89ac8f.gif)
+    - navigation에서 검색어 입력후, 돋보기 버튼 클릭 or enter로 검색 요청을 보낼 수 있도록 처리, 해당 검색어가 들어가는 모든 영화 정보 조회
+    - 한 페이지 당 20개의 데이터를 가져오도록 처리, useInfiniteQuery를 사용하여 다음 페이지에 대한 정보와 react-infinite-scroller사용하여 무한스크롤 구현
+    - useInfiniteQuery 데이터를 캐싱, 캐싱삭제를 위해 ['queryKey', 데이터 변경을 일으키는 state] 적용하여 캐싱 처리
+    - img url이 없을 때 img태그의 onError 속성이용하여 핸들링
+    - 검색페이지에서 영화의 제목, 포스터, 별점 표시 (별점이 없는 경우 선호도의 소숫점 한 자리수까지 표기(Number.toFixed())
+    - 검색페이지 결과에서 해당 영화 정보 클릭 시 모달로 영화의 정보를 보여주고, 닫기 버튼 외 영역에서는 상세페이지로 이동하도록 처리
+   
+   
+   
+   

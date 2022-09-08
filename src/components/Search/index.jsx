@@ -10,7 +10,7 @@ const SearchBox = () => {
 
   const handleToSearchSubmit = e => {
     e.preventDefault();
-    navigate('/search', { state: { searchWord } });
+    navigate('/movie/search', { state: { searchWord } });
   };
 
   const handleChange = ({ target }) => {

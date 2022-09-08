@@ -14,15 +14,23 @@
 
 ## 팀원
 
-| 이름                                   | 역할                                                 |
-| -------------------------------------- | ---------------------------------------------------- |
-| [김재훈](https://github.com/rmawogns)  |                                                      |
-| [노기훈](https://github.com/ch4md0m)   |                                                      |
-| [유지예](https://github.com/jiye-7)    | 검색 기능, 검색 페이지에서 쓰이는 무한 스크롤, 모달창 구현        |
-| [이우윤](https://github.com/EEOOOO)    | 메인 페이지                                          |
-| [백광현](https://github.com/ghbaekdev) | now playing 홈페이지 구현, 로딩컴포넌트 제작         |
-| [정진우](https://github.com/jinux127)  | 공통 컴포넌트 제작 (로딩, 스크롤업), 순위페이지 구현 |
-| [정현준](https://github.com/wjd2676)   |                                                      |
+| 이름 | 역할 |
+| ---- | ---- |
+
+<<<<<<< HEAD
+| [김재훈](https://github.com/rmawogns) | Upcoming 페이지 구현 |
+| [노기훈](https://github.com/ch4md0m) | 초기 세팅, 상세 페이지 구현, 배포 |
+| [유지예](https://github.com/jiye-7) | |
+=======
+| [김재훈](https://github.com/rmawogns) | |
+| [노기훈](https://github.com/ch4md0m) | |
+| [유지예](https://github.com/jiye-7) | 검색 기능, 검색 페이지에서 쓰이는 무한 스크롤, 모달창 구현 |
+
+> > > > > > > fd2fbb91dae71223e59cc5c98e6b2e99687f3b5b
+> > > > > > > | [이우윤](https://github.com/EEOOOO) | 메인 페이지 |
+> > > > > > > | [백광현](https://github.com/ghbaekdev) | now playing 홈페이지 구현, 로딩컴포넌트 제작 |
+> > > > > > > | [정진우](https://github.com/jinux127) | 공통 컴포넌트 제작 (로딩, 스크롤업), 순위페이지 구현 |
+> > > > > > > | [정현준](https://github.com/wjd2676) | |
 
 ## Tech Stack
 
@@ -163,6 +171,12 @@ npm run start
 - infinitescroll 구현
 
 3. upcoming page
+
+- 한번에 데이터 최대 20개 조회
+- 제목, 포스터, 개봉 예정일 표시
+- 포스터 없는 경우, 대체(no Image) 적용
+- infinitescroll 구현
+
 4. top-rated page
    ![image](/public/images/trpage.gif)
    - 한번에 데이터 최대 20개 조회
@@ -174,14 +188,32 @@ npm run start
 
 6. 검색 페이지
 
-   ![검색기능 구현](https://user-images.githubusercontent.com/62678492/189015291-e5db93c4-4990-4aee-bd47-0d7f4f89ac8f.gif)
-    - navigation에서 검색어 입력후, 돋보기 버튼 클릭 or enter로 검색 요청을 보낼 수 있도록 처리, 해당 검색어가 들어가는 모든 영화 정보 조회
-    - 한 페이지 당 20개의 데이터를 가져오도록 처리, useInfiniteQuery를 사용하여 다음 페이지에 대한 정보와 react-infinite-scroller사용하여 무한스크롤 구현
-    - useInfiniteQuery 데이터를 캐싱, 캐싱삭제를 위해 ['queryKey', 데이터 변경을 일으키는 state] 적용하여 캐싱 처리
-    - img url이 없을 때 img태그의 onError 속성이용하여 핸들링
-    - 검색페이지에서 영화의 제목, 포스터, 별점 표시 (별점이 없는 경우 선호도의 소숫점 한 자리수까지 표기(Number.toFixed())
-    - 검색페이지 결과에서 해당 영화 정보 클릭 시 모달로 영화의 정보를 보여주고, 닫기 버튼 외 영역에서는 상세페이지로 이동하도록 처리
-   
-   
-   
-   
+- 한번에 데이터 최대 20개 조회
+- 제목, 개봉 예정일 표시
+- infinitescroll 구현
+- 포스터 없는 경우, 대체 이미지(no Image) 적용
+
+<br/>
+
+#### 4. top-rated page
+
+![image](/public/images/trpage.gif)
+
+- 한번에 데이터 최대 20개 조회
+- 제목, 포스터, 별점 표시
+- 포스터 없는 경우, 대체 이미지 적용
+- lazyLoading 구현
+- 이미지 로딩 시 skeleton 으로 표현
+
+<br/>
+
+#### 5. 영화 상세 페이지
+
+![image](/public/images/detailpage.gif)
+
+- Modal 창으로 트레일러 재생
+- 트레일러가 있을 경우만 트레일러 버튼 노출
+
+<br/>
+
+#### 6. 검색 페이지

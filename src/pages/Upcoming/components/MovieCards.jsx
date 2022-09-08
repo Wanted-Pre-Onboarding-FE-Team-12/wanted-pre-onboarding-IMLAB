@@ -6,7 +6,7 @@ import styled from 'styled-components';
 function MovieCards({ movieImage, movieId, movieName, movieRelease }) {
   return (
     <Card>
-      <Link to={`/movie${movieId}`}>
+      <Link to={`/movie/${movieId}`}>
         {movieImage ? (
           <img style={{ width: '100%' }} src={movieImage} alt={movieName} />
         ) : (

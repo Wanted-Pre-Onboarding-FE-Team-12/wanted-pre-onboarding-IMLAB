@@ -13,7 +13,6 @@ export const NavLinksWrapper = styled.div`
     display: flex;
     .page-link {
       padding: 1rem 2rem;
-      margin-right: 1rem;
       font-size: 2.1rem;
       font-weight: 300;
       &:hover {

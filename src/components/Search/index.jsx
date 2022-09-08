@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as S from './style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import * as S from './style';
 
 const SearchBox = () => {
   const navigate = useNavigate();
@@ -10,15 +10,12 @@ const SearchBox = () => {
 
   const handleToSearchSubmit = e => {
     e.preventDefault();
-    navigate('/search', { state: { searchWord } });
+    navigate('/movie/search', { state: { searchWord } });
   };
 
   const handleChange = ({ target }) => {
-    setSearchWord('');
     const word = target.value;
-    if (word) {
-      setSearchWord(word);
-    }
+    setSearchWord(word);
   };
 
   return (

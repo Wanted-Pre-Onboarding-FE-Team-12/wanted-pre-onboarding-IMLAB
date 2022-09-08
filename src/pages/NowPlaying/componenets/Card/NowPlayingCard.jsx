@@ -16,7 +16,7 @@ const NowPlayingCard = ({ nowPlay }) => {
   const { title, vote_average, poster_path, id } = nowPlay;
 
   const goToDetail = id => {
-    navigate(`/detail/${id}`);
+    navigate(`/movie/${id}`);
   };
 
   return (

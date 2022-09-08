@@ -54,7 +54,7 @@ const Home = () => {
         <MainThumbnail
           goToDetail={goToDetail}
           movie={popularMovies.results[randomNum] ? popularMovies.results[randomNum] : ''}
-          chartNum = {randomNum}
+          chartNum={randomNum}
         />
         <h1>Popular Movies</h1>
         <PopularMovies onClick={handlePopularMovieListClick}>

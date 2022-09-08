@@ -15,7 +15,7 @@ export const MainThumbnail = ({ movie, goToDetail, chartNum }) => {
       <ThumbnailImage src={`${IMAGE_BASE_URL}${backdrop_path}`}></ThumbnailImage>
       <ThumbnailDescription>
         <div className="col-top">
-          <h2>현재 top {chartNum+1} 영화</h2>
+          <h2>현재 top {chartNum + 1} 영화</h2>
           <h1>{title}</h1>
           <p>{overview}</p>
           <p>{`⭐${vote_average}  🤩${vote_count}`}</p>

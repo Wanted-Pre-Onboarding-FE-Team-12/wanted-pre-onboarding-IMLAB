@@ -40,7 +40,7 @@ const Home = () => {
   }
 
   const goToDetail = id => {
-    navigate(`movie/${id}`, { state: id });
+    navigate(`/movie/${id}`, { state: id });
   };
 
   function handlePopularMovieListClick(event) {

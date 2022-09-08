@@ -5,10 +5,11 @@ import * as S from './style';
 import Loading from '@components/Loading2/index';
 import InfiniteScroll from 'react-infinite-scroller';
 import * as MovieAPI from '../../api/movieApi';
-import { useQuery } from 'react-query';
+// import { useQuery } from '@tareact-query';
 
 const NowPlaying = () => {
   const [nowPlayList, setNowPlayList] = useState();
+
   useEffect(() => {
     MovieAPI.getNowPlayingMovie(1)
       .then(res => setNowPlayList(res.results))
@@ -31,13 +32,7 @@ const NowPlaying = () => {
     setNowPlayList([...result]);
   };
 
-  const { isLoading } = useQuery(['nowplaying'], () => MovieAPI.getNowPlayingMovie(), {
-    staleTime: 30000,
-  });
-
-  // const { data: videoData } = useQuery(['videos'], () => MovieAPI.movieVideos(movie_id), {});
-
-  // const { data: creditData } = useQuery(['credits'], () => movieApi.movieCredits(movie_id), {});
+  // const { isLoading } = useQuery(['nowplaying'], () => MovieAPI.getNowPlayingMovie());
 
   return (
     <Layout>
@@ -55,13 +50,9 @@ const NowPlaying = () => {
         </S.NowPlayingHeaders>
         <InfiniteScroll pageStart={1} loadMore={loadMore} hasMore={true} loader={<Loading />}>
           <S.CardBox>
-            {isLoading ? (
-              <Loading />
-            ) : (
-              nowPlayList?.map(nowPlay => {
-                return <NowPlayingCard nowPlay={nowPlay} />;
-              })
-            )}
+            {nowPlayList?.map(nowPlay => {
+              return <NowPlayingCard nowPlay={nowPlay} />;
+            })}
           </S.CardBox>
         </InfiniteScroll>
       </S.NowPlayingBox>

@@ -12,5 +12,8 @@ export const NavigationWrapper = styled.header`
 
 export const NavLogo = styled.div`
   font-size: 4rem;
-  margin: 0 auto;
+  margin-left: 10rem;
+  img {
+    width: 250px;
+  }
 `;
